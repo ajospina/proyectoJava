@@ -12,6 +12,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <primefaces.version>6.2</primefaces.version>
     </properties>
     
     <dependencies>
@@ -19,7 +20,6 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>${primefaces.version}</version>
-            <primefaces.version>6.2</primefaces.version>
         </dependency>
         
         <dependency>
