@@ -5,7 +5,7 @@
  */
 package co.com.iteria.naturalparksfront.view;
 
-import co.com.iteria.naturalparksfront.model.ApiParque;
+import co.com.iteria.naturalparksfront.model.Parque;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
 @ViewScoped
 public class ListParkView {
     
-    private List<ApiParque> lparks = new ArrayList();
+    private List<Parque> lparks = new ArrayList();
     private String url = "http://localhost:8080/NaturalParksBack/webresources/api/v1/parks/";
     
     public String listParks(){
@@ -44,18 +44,18 @@ public class ListParkView {
         while(iter.hasNext()){
             JsonObject val = (JsonObject)iter.next();
             
-            ApiParque p  = ApiParque.parkFromJSON(val);
+            Parque p  = Parque.parkFromJSON(val);
             lparks.add(p);
         }
         
         return null;
     }
 
-    public List<ApiParque> getLparks() {
+    public List<Parque> getLparks() {
         return lparks;
     }
 
-    public void setLparks(List<ApiParque> lparks) {
+    public void setLparks(List<Parque> lparks) {
         this.lparks = lparks;
     }   
 }

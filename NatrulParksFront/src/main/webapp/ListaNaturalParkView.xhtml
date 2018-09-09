@@ -37,7 +37,11 @@
                 </p:column>
                 
                 <p:column headerText ="#{bundle.COL_ACTION_HEAD}" style="width: 25px; text-align: center" >
-                   
+                    <p:button id="btnEditPark" outcome="ParkView" icon="fa fa-edit"  >
+                    
+                        <f:param name="action" value="edit" />
+                        <f:param name="code" value="#{item.id}" />
+                    </p:button>
                 </p:column> 
             </p:dataTable>
         </p:panelGrid>   

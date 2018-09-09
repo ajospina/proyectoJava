@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/NaturalParkTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="code" value="#{ParkView.selectedId}"/>
+        <f:event type="preRenderView" listener="#{ParkView.init}"/>
+    </f:metadata>
+    <ui:param name="title" value="#{bundle.TITLE_VIEW_PARK}"/>
+    <ui:define name="content">
+        <h:panelGrid columns="2" cellpadding="5">
+            
+            <h:outputLabel for="id" value="#{bundle.TITLE_ID_HD}:" />
+            <p:inputText id="id" readonly="true" required="true" value="#{ParkView.selectedParque.id}" />
+            
+            <h:outputLabel for="name" value="#{bundle.TITLE_NAME_HD}:" />
+            <p:inputText id="name" required="true" value = "#{ParkView.selectedParque.name}"/>
+            
+            <h:outputLabel for="state" value="#{bundle.TITLE_STATE_HD}:" />
+            <p:inputText id="state" required="true" value="#{ParkView.selectedParque.state}" />
+            
+            <h:outputLabel for="capacity" value="#{bundle.TITLE_CAPACITY_HD}:" />
+            <p:inputText id="capacity" required="true" value="#{ParkView.selectedParque.capacity}" />
+            
+            <h:outputLabel for="status" value="#{bundle.TITLE_STATUS_HD}:" />
+            <p:inputText id="status" required="true" value="#{ParkView.selectedParque.status}" />
+            
+            <p:spacer width="1" height="15"/>
+            <f:facet name="footer">
+                <p:button outcome="ListaNaturalParkView" value="#{bundle.BTN_BACK_TEXT}" icon="fa fa-backward"/>
+            </f:facet>
+        </h:panelGrid>
+    </ui:define>
+
+</ui:composition>
