@@ -1,5 +1,8 @@
-package co.com.iteria.naturalparksback.model;
+package co.com.iteria.naturalparksfront.model;
 // Generated 28/08/2018 10:39:47 PM by Hibernate Tools 4.3.1
+
+import javax.json.JsonObject;
+
 
 
 
@@ -60,6 +63,19 @@ public class ApiParque  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+    public static ApiParque parkFromJSON(JsonObject val){
+        
+        int id = val.getInt("id");
+        String name = val.getString("name");
+        String state  = val.getString("state");
+        int capacity = val.getInt("capacity");
+        String status = val.getString("status");
+        
+        ApiParque p = new ApiParque(id, name, state, capacity, status);
+        
+        return p;         
     }
     
     public String getStrJson(){
