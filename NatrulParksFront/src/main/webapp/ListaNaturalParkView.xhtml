@@ -15,6 +15,11 @@
                              action="#{ntParksView.listParks()}"
                              update="tblParks" icon="ui-icon-disk" 
                             />
+            
+            <p:button value="#{bundle.BTN_ADD_PARK}" 
+                             id="btnadd"
+                             outcome="CreateParkView"/>
+                
             <p:spacer width="1" height="10" />
             <p:dataTable id="tblParks" var="item" value="#{ntParksView.lparks}">
 

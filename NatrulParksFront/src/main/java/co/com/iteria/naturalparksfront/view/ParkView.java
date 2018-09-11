@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.json.JsonObject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -75,12 +76,19 @@ public class ParkView {
                           .delete();
         
          if (resp.getStatus() == 204){
-            FacesContext.getCurrentInstance()
+            
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            Flash flash = facesContext.getExternalContext().getFlash();
+            flash.setKeepMessages(true); 
+            flash.setRedirect(true); 
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Sample info message", bundle.getString("MSG_DEL_OK"))); 
+                    
+             FacesContext.getCurrentInstance()
                         .getApplication()
                         .getNavigationHandler()
                         .handleNavigation(FacesContext.getCurrentInstance(),
                                            null, "ListaNaturalParkView.xhtml");
-            addMessage(bundle.getString("MSG_DEL_OK"));
+            
         }else{
             addMessage(bundle.getString("MSG_DEL_FAIL"));
         }   

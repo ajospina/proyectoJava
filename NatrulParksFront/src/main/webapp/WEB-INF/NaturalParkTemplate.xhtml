@@ -16,8 +16,10 @@
     <h:body>
         <h:form>
             <div id="top">
-                <p:outputLabel for="idioma" value="Basic:" />
+                <p:outputLabel for="idioma" value="Idioma" />
                 <p:selectOneMenu id="idioma" 
+                                  value="#{templateView.languaje}" 
+                                  valueChangeListener ="#{templateView.onLangChange}" 
                                   style="width:125px"
                                   onchange="submit()"
                                   immediate="true">

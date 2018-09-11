@@ -31,10 +31,10 @@
             
             <p:spacer width="1" height="15"/>
             <f:facet name="footer">
-                <p:growl id="growl" life="2000" />
+                <p:growl id="growl" life="5000" />
                 <p:button outcome="ListaNaturalParkView" value="#{bundle.BTN_BACK_TEXT}" icon="fa fa-backward"/>
                 <p:splitButton value="#{bundle.BTN_UPDATE_TXT}" actionListener="#{ParkView.updatePark}" update="growl" icon="ui-icon-disk">
-                    <p:menuitem value="#{bundle.BTN_DELETE_TXT}" actionListener="#{ParkView.deletePark}" ajax="false" icon="ui-icon-close" >
+                    <p:menuitem value="#{bundle.BTN_DELETE_TXT}" actionListener="#{ParkView.deletePark}" update="growl" icon="ui-icon-close" >
                      
                     </p:menuitem>
                 </p:splitButton>
