@@ -15,7 +15,7 @@
         <h:panelGrid columns="2" cellpadding="5">
             
             <h:outputLabel for="id" value="#{bundle.TITLE_ID_HD}:" />
-            <p:inputText id="id" readonly="true" required="true" value="#{ParkView.selectedParque.id}" />
+            <p:inputText id="id" readonly="false" required="true" value="#{ParkView.selectedParque.id}" />
             
             <h:outputLabel for="name" value="#{bundle.TITLE_NAME_HD}:" />
             <p:inputText id="name" required="true" value = "#{ParkView.selectedParque.name}"/>
@@ -31,7 +31,13 @@
             
             <p:spacer width="1" height="15"/>
             <f:facet name="footer">
+                <p:growl id="growl" life="2000" />
                 <p:button outcome="ListaNaturalParkView" value="#{bundle.BTN_BACK_TEXT}" icon="fa fa-backward"/>
+                <p:splitButton value="#{bundle.BTN_UPDATE_TXT}" actionListener="#{ParkView.updatePark}" update="growl" icon="ui-icon-disk">
+                    <p:menuitem value="#{bundle.BTN_DELETE_TXT}" actionListener="#{ParkView.deletePark}" ajax="false" icon="ui-icon-close" >
+                     
+                    </p:menuitem>
+                </p:splitButton>
             </f:facet>
         </h:panelGrid>
     </ui:define>

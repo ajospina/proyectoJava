@@ -1,7 +1,9 @@
 package co.com.iteria.naturalparksfront.model;
 // Generated 28/08/2018 10:39:47 PM by Hibernate Tools 4.3.1
 
+import javax.json.Json;
 import javax.json.JsonObject;
+import javax.ws.rs.client.Entity;
 
 
 
@@ -76,6 +78,13 @@ public class Parque  implements java.io.Serializable {
         Parque p = new Parque(id, name, state, capacity, status);
         
         return p;         
+    }
+   
+    
+    public Entity toJson(){
+        
+        Entity payload = Entity.json(this.getStrJson());
+        return payload;
     }
     
     public String getStrJson(){
